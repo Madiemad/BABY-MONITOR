@@ -33,7 +33,16 @@ function draw(){
     if(status != false){
         coco.detect(camcam,gotResult);
         for(var i=0; i<obj.length;i++){
-            if(obj[i].label == "person"){
+            
+            fill(r,g,b);
+            $("#stat").html("STATUS: DEVELOPER'S EFFORTS ONLY!");
+            conf=floor(obj[i].confidence*100);
+            text(obj[i].label+" "+ conf+"%",obj[i].x+15,obj[i].y+15);
+            noFill();
+            stroke(r,g,b);
+            rect(obj[i].x,obj[i].y,obj[i].width,obj[i].height);
+        }
+        if(obj[i].label == "person"){
                 $("#nob").html("BABY IS DETECTED");
                 alarm.stop();
             }else if(obj[i].label != "person"){
@@ -48,13 +57,5 @@ function draw(){
                     alarm.play();
                 }
             }
-            fill(r,g,b);
-            $("#stat").html("STATUS: DEVELOPER'S EFFORTS ONLY!");
-            conf=floor(obj[i].confidence*100);
-            text(obj[i].label+" "+ conf+"%",obj[i].x+15,obj[i].y+15);
-            noFill();
-            stroke(r,g,b);
-            rect(obj[i].x,obj[i].y,obj[i].width,obj[i].height);
-        }
     }   
 }
