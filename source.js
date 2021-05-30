@@ -42,7 +42,7 @@ function draw(){
                     alarm.play();
                 }
             }
-            else if(obj.length < 0){
+            else if(obj.length < 0 || obj.length == 0){
                 $("#nob").html("BABY IS NOT DETECTED");
                 if(alarm.isPlaying() == false){
                     alarm.play();
