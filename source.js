@@ -41,8 +41,7 @@ function draw(){
             noFill();
             stroke(r,g,b);
             rect(obj[i].x,obj[i].y,obj[i].width,obj[i].height);
-        }
-        if(obj[i].label == "person"){
+                    if(obj[i].label == "person"){
                 $("#nob").html("BABY IS DETECTED");
                 alarm.stop();
             }else if(obj[i].label != "person"){
@@ -51,6 +50,8 @@ function draw(){
                     alarm.play();
                 }
             }
+        }
+
             else if(obj.length < 0 || obj.length == 0){
                 $("#nob").html("BABY IS NOT DETECTED");
                 if(alarm.isPlaying() == false){
